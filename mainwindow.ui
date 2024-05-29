@@ -24,17 +24,30 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="push1">
+   <widget class="QPushButton" name="push0">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>240</y>
+      <y>190</y>
       <width>121</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Inserisci riga</string>
+     <string>Inserisci righe</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="push1">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>260</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Inserisci docenti</string>
     </property>
    </widget>
   </widget>
