@@ -6,27 +6,38 @@ import sys
 class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
-        uic.loadUi(r"C:\Users\TEMP\Documents\helpOur\mainwindow.ui", self)
+        uic.loadUi(r"C:\Users\danielefiorucci1\Downloads\interfaceLab-main\interfaceLab-main\mainwindow.ui", self)
  
         # find the widgets in the xml file
  
         self.table = self.findChild(QTableWidget, "table1")
-        self.button = self.findChild(QPushButton, "push1")
-        self.button.clicked.connect(self.clickedBtn)
-        self.table.setColumnCount(2)
+        self.button0 = self.findChild(QPushButton, "push0")
+        self.button0.clicked.connect(self.inserisciRighe)
+        self.button1 = self.findChild(QPushButton, "push1")
+        self.button1.clicked.connect(self.inserisciDocenti)
+        self.table.setColumnCount(3)
         self.table.setRowCount(2)
-        self.table.setHorizontalHeaderLabels(["nome"])
+        self.table.setHorizontalHeaderLabels(["nomeP", "nomeA", "nOre"])
  
         self.show()
  
- 
- 
-    def clickedBtn(self):
-        
-        lista = [{"nome": "pippo", "cognome": "baudo", "nOre": 4}, {"nome": "p", "cognome": "b", "nOre": 6}]
-        for x in lista:
-            item_nome = QTableWidgetItem(x["nome"])
-            self.table.setItem(item_nome)
+        self.lista = [{"nomeProf": "matteoPicciolini", "nomeAlunno": "danieleFiorucci", "nOre": "4"}, 
+             {"nomeProf": "cristianaNeri", "nomeAlunno": "micheleBellucci", "nOre": "6"}, 
+             {"nomeProf": "edoardoPanfili", "nomeAlunno": "lorenzoScanu", "nOre": "8"}]
+
+    def inserisciRighe(self):
+        self.table.setRowCount(len(self.lista))
+    def inserisciDocenti(self):
+        riga=0
+        for x in self.lista:
+            item_nomeProf = QTableWidgetItem(x["nomeProf"])
+            item_nomeAlunno = QTableWidgetItem(x["nomeAlunno"])
+            item_nOre = QTableWidgetItem(x["nOre"])
+            self.table.setItem(riga, 0, item_nomeProf)
+            self.table.setItem(riga, 1, item_nomeAlunno)
+            self.table.setItem(riga, 2, item_nOre)
+            riga+=1
+            
 
 app = QApplication(sys.argv)
 window = UI()
