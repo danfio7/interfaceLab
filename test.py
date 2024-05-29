@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QMenu, QMenuBar
 from PyQt5 import uic
 import sys
  
@@ -18,6 +18,7 @@ class UI(QMainWindow):
         self.table.setColumnCount(3)
         self.table.setRowCount(2)
         self.table.setHorizontalHeaderLabels(["nomeP", "nomeA", "nOre"])
+        self.menuBar = self.findChild(QMenuBar, "menubar")
  
         self.show()
  
@@ -37,7 +38,10 @@ class UI(QMainWindow):
             self.table.setItem(riga, 1, item_nomeAlunno)
             self.table.setItem(riga, 2, item_nOre)
             riga+=1
+    
             
+        
+    
 
 app = QApplication(sys.argv)
 window = UI()
